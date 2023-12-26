@@ -1,15 +1,24 @@
 plugins {
     id 'java'
+
 }
 
-group = 'ru.javabegin.opp.di'
-version = '1.0-SNAPSHOT'
+group 'ru.javabegin.oop.di'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation group: 'org.jboss.weld.se', name: 'weld-se-core', version: '5.1.2.Final'
 
+task copyResources(type: Copy) {
+    from "${projectDir}/src/main/resources/META-INF"
+    into "${buildDir}/classes/java/main/META-INF"
 }
+
+processResources.dependsOn copyResources
+
+dependencies {
+    implementation 'org.jboss.weld.se:weld-se-core:+'
+}
+

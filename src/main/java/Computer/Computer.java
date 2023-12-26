@@ -1,11 +1,15 @@
 package Computer;
 
+import jakarta.inject.Inject;
+
 public class Computer implements IComputer {
 
     public Computer() {
     }
     private String name;
-    private IMonitor monitor;
+
+    @Inject
+    protected IMonitor monitor; // в эту переменную будет подставлен конкретный объект
 
     public Computer(String name, IMonitor monitor) {
         this.name = name;
