@@ -1,7 +1,9 @@
 package Computer;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+@ApplicationScoped
 public class Computer implements IComputer {
 
     public Computer() {
